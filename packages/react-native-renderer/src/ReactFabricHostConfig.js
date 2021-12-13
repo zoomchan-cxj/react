@@ -492,3 +492,12 @@ export function afterActiveInstanceBlur() {
 export function preparePortalMount(portalInstance: Instance): void {
   // noop
 }
+
+
+export function commitEffectsBegin(): void {
+  // noop
+}
+
+export function commitEffectsComplete(): void {
+  // noop
+}

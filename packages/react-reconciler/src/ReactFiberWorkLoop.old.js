@@ -85,6 +85,8 @@ import {
   beforeActiveInstanceBlur,
   afterActiveInstanceBlur,
   clearContainer,
+  commitEffectsBegin,
+  commitEffectsComplete,
 } from './ReactFiberHostConfig';
 
 import {
@@ -2303,6 +2305,9 @@ function commitMutationEffects(
   root: FiberRoot,
   renderPriorityLevel: ReactPriorityLevel,
 ) {
+  if (typeof commitEffectsBegin === 'function') {
+    commitEffectsBegin();
+  }
   // TODO: Should probably move the bulk of this function to commitWork.
   while (nextEffect !== null) {
     setCurrentDebugFiberInDEV(nextEffect);
@@ -2379,6 +2384,9 @@ function commitMutationEffects(
 
     resetCurrentDebugFiberInDEV();
     nextEffect = nextEffect.nextEffect;
+  }
+  if (typeof commitEffectsComplete === 'function') {
+    commitEffectsComplete();
   }
 }
 

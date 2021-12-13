@@ -1236,3 +1236,12 @@ export function setupIntersectionObserver(
     },
   };
 }
+
+
+export function commitEffectsBegin(): void {
+  // noop
+}
+
+export function commitEffectsComplete(): void {
+  // noop
+}

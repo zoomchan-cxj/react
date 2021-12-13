@@ -116,6 +116,9 @@ export const updateFundamentalComponent =
 export const unmountFundamentalComponent =
   $$$hostConfig.unmountFundamentalComponent;
 export const clearContainer = $$$hostConfig.clearContainer;
+export const commitEffectsBegin = $$$hostConfig.commitEffectsBegin;
+export const commitEffectsComplete = $$$hostConfig.commitEffectsComplete;
+
 
 // -------------------
 //     Persistence

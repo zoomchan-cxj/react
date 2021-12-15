@@ -60,6 +60,8 @@ import {
   cancelTimeout,
   noTimeout,
   warnsIfNotActing,
+  commitEffectsBegin,
+  commitEffectsComplete,
 } from './ReactFiberHostConfig';
 
 import {createWorkInProgress, assignFiberPropertiesInDEV} from './ReactFiber';
@@ -2096,6 +2098,9 @@ function commitBeforeMutationEffects() {
 }
 
 function commitMutationEffects(root: FiberRoot, renderPriorityLevel) {
+  if (typeof commitEffectsBegin === 'function') {
+    commitEffectsBegin();
+  }
   // TODO: Should probably move the bulk of this function to commitWork.
   while (nextEffect !== null) {
     setCurrentDebugFiberInDEV(nextEffect);
@@ -2169,6 +2174,9 @@ function commitMutationEffects(root: FiberRoot, renderPriorityLevel) {
 
     resetCurrentDebugFiberInDEV();
     nextEffect = nextEffect.nextEffect;
+  }
+  if (typeof commitEffectsComplete === 'function') {
+    commitEffectsComplete();
   }
 }
 

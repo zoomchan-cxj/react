@@ -504,6 +504,8 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
         resetTextContent(instance: Instance): void {
           instance.text = null;
         },
+        commitEffectsBegin() {},
+        commitEffectsComplete() {},
       }
     : {
         ...sharedHostConfig,

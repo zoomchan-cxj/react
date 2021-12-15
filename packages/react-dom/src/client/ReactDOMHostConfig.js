@@ -976,3 +976,11 @@ export function unmountFundamentalComponent(
     }
   }
 }
+
+export function commitEffectsBegin(): void {
+  // noop
+}
+
+export function commitEffectsComplete(): void {
+  // noop
+}

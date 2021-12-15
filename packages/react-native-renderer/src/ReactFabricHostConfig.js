@@ -491,3 +491,11 @@ export function unmountFundamentalComponent(fundamentalInstance) {
 export function cloneFundamentalInstance(fundamentalInstance) {
   throw new Error('Not yet implemented.');
 }
+
+export function commitEffectsBegin(): void {
+  // noop
+}
+
+export function commitEffectsComplete(): void {
+  // noop
+}

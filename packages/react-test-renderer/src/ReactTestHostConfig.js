@@ -351,3 +351,11 @@ export function unmountFundamentalComponent(
     onUnmount(null, instance, props, state);
   }
 }
+
+export function commitEffectsBegin(): void {
+  // noop
+}
+
+export function commitEffectsComplete(): void {
+  // noop
+}
